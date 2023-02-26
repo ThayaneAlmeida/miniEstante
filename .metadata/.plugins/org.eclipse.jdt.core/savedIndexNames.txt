@@ -1,3 +1,0 @@
-INDEX VERSION 1.131+C:\miniEstante-main\.metadata\.plugins\org.eclipse.jdt.core
-2409429014.index
-1535177651.index
