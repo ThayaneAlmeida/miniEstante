@@ -2,7 +2,6 @@ package miniEstante.model;
 
 public class Emprestimo {
 
-<<<<<<< HEAD
 	long idCliente;
 	long idLivro;
 	String dataAluguel;
@@ -62,6 +61,4 @@ public class Emprestimo {
 
 	}
 
-=======
->>>>>>> 42a612123bd84b5b4b16bf79ea1df7200e7f1176
 }

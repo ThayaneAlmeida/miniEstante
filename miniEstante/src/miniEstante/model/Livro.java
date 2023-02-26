@@ -2,8 +2,6 @@ package miniEstante.model;
 
 public class Livro {
 
-<<<<<<< HEAD
-=======
 	private int numero;
 	private String titulo;
 	private String autor;
@@ -75,5 +73,5 @@ public class Livro {
 		System.out.println("Ano do livro: " + this.ano);
 		System.out.println("Status do livro: " + opcao);
 	}
->>>>>>> 42a612123bd84b5b4b16bf79ea1df7200e7f1176
+
 }

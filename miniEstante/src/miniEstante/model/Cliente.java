@@ -2,7 +2,6 @@ package miniEstante.model;
 
 public class Cliente {
 
-<<<<<<< HEAD
 	private String nome;
 	private String endereco;
 	private long telefone;
@@ -56,6 +55,4 @@ public class Cliente {
 		System.out.println("Id: " + this.idCliente);
 
 	}
-=======
->>>>>>> 42a612123bd84b5b4b16bf79ea1df7200e7f1176
 }
