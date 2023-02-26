@@ -6,9 +6,9 @@ public class Livro {
 	private String titulo;
 	private String autor;
 	private int ano;
-	private boolean alugado;
+	private int alugado;
 	
-	public Livro(int numero, String titulo, String autor, int ano, boolean alugado) {
+	public Livro(int numero, String titulo, String autor, int ano, int alugado) {
 		super();
 		this.numero = numero;
 		this.titulo = titulo;
@@ -49,20 +49,28 @@ public class Livro {
 		this.ano = ano;
 	}
 
-	public boolean isAlugado() {
+	public int isAlugado() {
 		return alugado;
 	}
 
-	public void setAlugado(boolean alugado) {
+	public void setAlugado(int alugado) {
 		this.alugado = alugado;
 	}
 	
+	
 	public void visualizar() {
 		
-		System.out.println("Numero do liveo: " + this.numero);
-		System.out.println("Titulo do liveo: " + this.titulo);
-		System.out.println("Autor do liveo: " + this.autor);
-		System.out.println("Ano do liveo: " + this.ano);
-		System.out.println("Status do liveo: " + this.alugado);
+		int opcao = 0;
+		
+		switch(opcao) {
+		case 1 -> System.out.println("Alugado");
+		case 2 -> System.out.println("Disponível");
+		}
+		
+		System.out.println("Numero do livro: " + this.numero);
+		System.out.println("Titulo do livro: " + this.titulo);
+		System.out.println("Autor do livro: " + this.autor);
+		System.out.println("Ano do livro: " + this.ano);
+		System.out.println("Status do livro: " + opcao);
 	}
 }

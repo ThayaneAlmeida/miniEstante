@@ -21,7 +21,9 @@ public class Menu {
 			System.out.println("\t2- Ver os Livros Disponíveis");
 			System.out.println("\t3- Alugar Livro");
 			System.out.println("\t4- Devolver Livro");
-			System.out.println("\t5- Sair");
+			System.out.println("\t5- Devolver Livro");
+			System.out.println("\t6- Devolver Livro");
+			System.out.println("\t7- Sair");
 			System.out.println("===============================================");
 			System.out.println("Digite a opção desejada: ");
 
