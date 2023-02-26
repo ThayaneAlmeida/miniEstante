@@ -56,7 +56,7 @@ Essa aplicação simula uma biblioteca virtual na qual há 2 perfis de acesso :
 Clone o projeto
 
 ```bash
-https://github.com/ThayaneAlmeida/miniEstante.git
+git clone https://github.com/ThayaneAlmeida/miniEstante.git
 ```
 
 Entre na pasta miniEstante_ProjetoJava
