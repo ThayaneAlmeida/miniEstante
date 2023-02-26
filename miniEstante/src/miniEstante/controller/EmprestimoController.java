@@ -67,5 +67,4 @@ public class EmprestimoController implements EmprestimoRepository {
 		return null;
 	}
 
-
 }
