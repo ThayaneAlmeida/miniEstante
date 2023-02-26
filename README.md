@@ -59,18 +59,31 @@ Clone o projeto
 git clone https://github.com/ThayaneAlmeida/miniEstante.git
 ```
 
-Entre na pasta miniEstante_ProjetoJava
+Entre na pasta miniEstante
 
 ```bash
-   cd miniEstante_ProjetoJava
-
+cd miniEstante
 ```
 
 Entre no diretório do projeto
 
 ```bash
-  cd miniEstante
+cd miniEstante
 ```
+
+## Abrindo projeto no Eclipse ![eclipse (2)](https://user-images.githubusercontent.com/91226847/221387898-31b29487-e343-403a-b4e2-9e7c80e8fa20.png)
+
+
+
+
+1. Abra o Git Bash na pasta onde você quer clonar o projeto.
+2. Digite "git clone https://github.com/ThayaneAlmeida/miniEstante.git ". <br>
+**Isso fará com que o repositório seja clonado para a pasta atual.**
+3. Abra o Eclipse.
+4. Clique em **"File" e selecione "Open Projects from File System".**
+5. Clique em **"Directory" e selecione a pasta do projeto clonado.**
+6. Clique em **"Finish" e o projeto será aberto no Eclipse.**
+
 
 
 ## Screenshots
