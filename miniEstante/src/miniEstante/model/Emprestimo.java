@@ -3,6 +3,19 @@ package miniEstante.model;
 import java.util.Scanner;
 
 public class Emprestimo {
+
+	String nomeUsuario;
+	String nomeLivro;
+	int opcao2;
+	static int tempo;
+
+	public Emprestimo(String nomeUsuario, String nomeLivro, int opcao2, int tempo) {
+		this.nomeUsuario = nomeUsuario;
+		this.nomeLivro = nomeLivro;
+		this.opcao2 = opcao2;
+		this.tempo = tempo;
+	}
+
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("===============================================");
@@ -54,7 +67,10 @@ public class Emprestimo {
 			}
 		}
 
-		if (opcao2 == 1) {
+		Emprestimo emprestimo = new Emprestimo(nomeUsuario, nomeLivro, opcao2, tempo);
+
+		switch (emprestimo.opcao2) {
+		case 1:
 			System.out.println("\nÓtimo! Você selecionou SIM!");
 
 			boolean tempoValido = false;
@@ -67,19 +83,21 @@ public class Emprestimo {
 					tempoValido = true;
 					System.out.println("\nVocê selecionou " + tempo + " dias para empréstimo!");
 
-					System.out.println("\nEstamos processando o empréstimo do livro " + nomeLivro + " para "
-							+ nomeUsuario + " por " + tempo + " dias!");
+					System.out.println("\nEstamos processando o empréstimo do livro " + emprestimo.nomeLivro + " para "
+							+ emprestimo.nomeUsuario + " por " + tempo + " dias!");
 					System.out.println("\nEmpréstimo realizado com sucesso!");
 				} else {
 					System.out.println("Por favor, digite um prazo maior que 0 e menor que 10 dias!");
 				}
 			}
-
-		} else if (opcao2 == 2) {
+			break;
+		case 2:
 			System.out.println("\nVocê selecionou NÃO!");
 			System.out.println("Não foi possível realizar o empréstimo. Desculpe-nos pelo inconveniente!");
-		} else {
+			break;
+		default:
 			System.out.println("\nVocê pressionou uma tecla inválida. O empréstimo foi cancelado!");
+			break;
 		}
 
 	}
