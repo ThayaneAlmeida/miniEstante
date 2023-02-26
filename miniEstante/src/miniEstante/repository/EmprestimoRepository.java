@@ -1,6 +1,7 @@
 package miniEstante.repository;
 
 
+
 import miniEstante.model.Emprestimo;
 
 public interface EmprestimoRepository {
@@ -11,5 +12,6 @@ public interface EmprestimoRepository {
 	public void registrarEmprestimo(Emprestimo emprestimo);
 	public void renovarEmprestimo(Emprestimo emprestimo);
 	public void deletarEmprestimo(long idLivro);
+
 
 }
