@@ -1,7 +1,7 @@
 package miniEstante.model;
 
 public class Emprestimo {
-<<<<<<< HEAD
+
 	long idCliente;
 	long idLivro;
 	String dataAluguel;
@@ -60,8 +60,5 @@ public class Emprestimo {
 		System.out.println("Data de devolução: " + this.dataDevolucao);
 
 	}
-	
-=======
 
->>>>>>> c36fb1a2972df529fd8a630fbb2cbecb2ac6eb74
 }

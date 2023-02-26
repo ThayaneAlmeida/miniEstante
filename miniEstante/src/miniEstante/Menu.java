@@ -26,7 +26,6 @@ public class Menu {
 		while (true) {
 			System.out.println("===============================================");
 			System.out.println("                                               ");
-
 			System.out.println("           📚 Bem-vinde a Mini Estante 📚       ");
 			System.out.println("                                               ");
 			System.out.println("===============================================");
@@ -145,7 +144,6 @@ public class Menu {
 
 		}
 	}
-
 
 
 
