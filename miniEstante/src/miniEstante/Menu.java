@@ -23,9 +23,11 @@ public class Menu {
 		int idCliente = 0;
 
 
+
 		while (true) {
 			System.out.println("===============================================");
 			System.out.println("                                               ");
+
 			System.out.println("           📚 Bem-vinde a Mini Estante 📚       ");
 			System.out.println("                                               ");
 			System.out.println("===============================================");
@@ -52,6 +54,7 @@ public class Menu {
 
 			switch (opcao) {
 			case 1 -> {
+
 
 				System.out.println("Cadastrar Cliente\n\n");
 
@@ -132,7 +135,6 @@ public class Menu {
 			}
 			case 10 -> {
 				System.out.println("Listar Livros Alugados");
-
 				keyPress();
 			}
 			default -> {
@@ -144,8 +146,6 @@ public class Menu {
 
 		}
 	}
-
-
 
 	public static void keyPress() {
 
