@@ -10,8 +10,13 @@ public class EmprestimoController implements EmprestimoRepository {
 	private ArrayList<Emprestimo> listaEmprestimo = new ArrayList<Emprestimo>();
 
 	@Override
-	public void procuraLivroAlugado(int numero) {
-		// Pegar Id do livro
+	public void procuraLivroAlugado(int idLivro) {
+		var livro = buscarAluguelNaCollection(idLivro);
+		
+		if(livro == null)
+			System.out.println("O livro " + idLivro + " não foi encontrado!");
+		else
+			livro.visualizar();
 
 	}
 
@@ -31,23 +36,29 @@ public class EmprestimoController implements EmprestimoRepository {
 
 	@Override
 	public void renovarEmprestimo(Emprestimo emprestimo) {
-	 var buscaEmprestimo = buscarAluguelNaCollection(emprestimo.getIdLivro)
+	 var buscaEmprestimo = buscarAluguelNaCollection(emprestimo.getIdLivro());
+	 
+	 if(buscaEmprestimo != null) {
+		 listaEmprestimo.set(listaEmprestimo.indexOf(buscaEmprestimo), emprestimo);
+		 System.out.println("O empréstimo número " + emprestimo.getIdLivro() + "não foi encontrada!" );
+	 }else
+		 System.out.println("O empréstimo número " + emprestimo.getIdLivro() + "foi atualizado!" );
 		
 	}
 
 	@Override
-	public void deletarEmprestimo(int idLivro) {
+	public void deletarEmprestimo(long idLivro) {
 		var emprestimo = buscarAluguelNaCollection(idLivro);
 		
-		if(idLivro != null) {
-			if(listaEmprestimo.remove(idLivro)== true)
+		if(emprestimo != null) {
+			if(listaEmprestimo.remove(emprestimo)== true)
 				System.out.println("O Empréstimo " + idLivro + " foi retirado da lista!");
 		}else
 			System.out.println("O Empréstimo " + idLivro + " não foi encontrado!");
 	}
 
 
-	public Emprestimo buscarAluguelNaCollection(int idLivro) {
+	public Emprestimo buscarAluguelNaCollection(long idLivro) {
 		for (var emprestimo : listaEmprestimo) {
 			if (emprestimo.getIdLivro() == idLivro)
 				return emprestimo;
@@ -55,4 +66,6 @@ public class EmprestimoController implements EmprestimoRepository {
 
 		return null;
 	}
+
+
 }
