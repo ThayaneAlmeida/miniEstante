@@ -39,7 +39,7 @@ public class Menu {
 			System.out.println("\t8- Excluir Livro");
 			System.out.println("\t9- Alugar Livro");
 			System.out.println("\t10- Listar Livros Alugados");
-			System.out.println("\t0- Listar Livros Alugados");
+			System.out.println("\t0- Sair");
 			System.out.println("===============================================");
 			System.out.println("Digite a opção desejada: ");
 
