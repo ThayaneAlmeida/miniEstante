@@ -73,7 +73,7 @@ public class Menu {
 			switch (opcao) {
 			case 1 -> {
 
-				System.out.println("Cadastrar Cliente\n\n");
+				System.out.println("Cadastrar Cliente");
 
 				System.out.println("Digitar o Nome do Cliente: ");
 				leia.skip("\\R?");
@@ -92,7 +92,7 @@ public class Menu {
 				keyPress();
 			}
 			case 2 -> {
-				System.out.println("Listar Clientes\n\n");
+				System.out.println("Listar Clientes");
 				clientes.listarClientes();
 				keyPress();
 			}
@@ -123,7 +123,7 @@ public class Menu {
 				keyPress();
 			}
 			case 4 -> {
-				System.out.println("Excluir Cadastro\n\n");
+				System.out.println("Excluir Cadastro");
 
 				System.out.println("Id do Cliente: ");
 				idCliente = leia.nextInt();
