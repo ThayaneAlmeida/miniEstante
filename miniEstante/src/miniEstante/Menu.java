@@ -5,7 +5,11 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import miniEstante.controller.ClienteController;
+import miniEstante.controller.EmprestimoController;
+import miniEstante.controller.LivroController;
 import miniEstante.model.Cliente;
+import miniEstante.model.Emprestimo;
+import miniEstante.model.Livro;
 
 public class Menu {
 
@@ -13,9 +17,24 @@ public class Menu {
 
 		ClienteController clientes = new ClienteController();
 
+		LivroController livros = new LivroController();
+
+		EmprestimoController emprestimos = new EmprestimoController();
+
+		String titulo;
+
+		String autor;
+
+		String opcao2 = "";
+
+		int idLivro = 0;
+
+		int ano, att = 0;
+
+		int alugado;
+
 		Scanner leia = new Scanner(System.in);
 
-<<<<<<< HEAD
 		Cliente c1 = new Cliente("Danilo Moraes", "Avenida Lírio Branco", "(11)999999999", clientes.gerarIdCliente());
 		clientes.cadastrar(c1);
 
@@ -35,38 +54,13 @@ public class Menu {
 		clientes.cadastrar(c6);
 
 		Cliente c7 = new Cliente("Thayane Almeida", "Rua Pedro Afonso", "(11)999999999", clientes.gerarIdCliente());
-=======
-		Cliente c1 = new Cliente("Danilo Moraes", "Rua Lírio Branco", "(11)999999999", clientes.gerarIdCliente());
-		clientes.cadastrar(c1);
-
-		Cliente c2 = new Cliente("Gabriel Farias", "Rua Cachoeira do Iguaçu", "(11)999999999",
-				clientes.gerarIdCliente());
-		clientes.cadastrar(c2);
-
-		Cliente c3 = new Cliente("Gustavo Santiago", "Alameda Castro Gomes", "(11)999999999",
-				clientes.gerarIdCliente());
-		clientes.cadastrar(c3);
-
-		Cliente c4 = new Cliente("Laise Farias", "Rua do Lazer", "(11)999999999", clientes.gerarIdCliente());
-		clientes.cadastrar(c4);
-
-		Cliente c5 = new Cliente("Lucas Marinho", "Avenida João Augusto", "(11)999999999", clientes.gerarIdCliente());
-		clientes.cadastrar(c5);
-
-		Cliente c6 = new Cliente("Rebeca Damas", "Rua do Limoeiro", "(11)999999999", clientes.gerarIdCliente());
-		clientes.cadastrar(c6);
-
-		Cliente c7 = new Cliente("Thayane Almeida", "Alameda das Crianças", "(11)999999999", clientes.gerarIdCliente());
->>>>>>> cliente
 		clientes.cadastrar(c7);
 
 		int opcao = 0;
 		String nome, endereco, telefone;
-<<<<<<< HEAD
-		int idCliente = 0;
-=======
+
 		int idCliente;
->>>>>>> cliente
+		String dataAluguel, dataDevolucao;
 
 		while (true) {
 			System.out.println("===============================================");
@@ -130,9 +124,9 @@ public class Menu {
 				keyPress();
 			}
 			case 3 -> {
-				System.out.println("Atualizar Cadastro\n\n");
+				System.out.println("Atualizar Cadastro");
 
-				System.out.println("\n\nId Cliente: ");
+				System.out.println("Id Cliente: ");
 				idCliente = leia.nextInt();
 
 				if (clientes.buscarClienteCollection(idCliente) != null) {
@@ -158,40 +152,89 @@ public class Menu {
 			case 4 -> {
 				System.out.println("Excluir Cadastro");
 
-<<<<<<< HEAD
 				System.out.println("IdCliente: ");
-				idCliente = leia.nextInt();
-=======
-				System.out.println("Id do Cliente: ");
 				idCliente = leia.nextInt();
 
 				clientes.deletarCliente(idCliente);
->>>>>>> cliente
 
 				keyPress();
 			}
 			case 5 -> {
 				System.out.println("Cadastrar Livro");
+				System.out.println("Digite o Titulo do livro: ");
+				leia.skip("\\R?");
+				titulo = leia.nextLine();
+				System.out.println("Digite o Autor: ");
+				leia.skip("\\R?");
+				autor = leia.nextLine();
+				System.out.println("Digite o Ano: ");
+				ano = leia.nextInt();
+				System.out.println("Digite a Disponibilidade(1- Alugado/ 2- Disponível): ");
+				alugado = leia.nextInt();
+				livros.cadastrar(new Livro(livros.gerarNumero(), titulo, autor, ano, alugado));
 				keyPress();
 			}
 			case 6 -> {
 				System.out.println("Listar Livros");
+				livros.listarLivro();
 				keyPress();
 			}
 			case 7 -> {
 				System.out.println("Atualizar Livro");
+				System.out.println("Digite o id do Livro: ");
+				idLivro = leia.nextInt();
+				if (livros.buscarLivroNaCollectio(idLivro) != null) {
+					System.out.println("Digite o Titulo: ");
+					leia.skip("\\R?");
+					titulo = leia.nextLine();
+					System.out.println("Digite o Autor: ");
+					autor = leia.nextLine();
+					System.out.println("Digite o Ano: ");
+					ano = leia.nextInt();
+					System.out.println("Digite a Disponibilidade: ");
+					att = leia.nextInt();
+					livros.atualizar(new Livro(idLivro, titulo, autor, ano, att));
+				}
 				keyPress();
 			}
 			case 8 -> {
 				System.out.println("Excluir Livro");
+				System.out.println("Digite o id do Livro: ");
+				idLivro = leia.nextInt();
+				livros.deletarLivro(idLivro);
 				keyPress();
 			}
 			case 9 -> {
 				System.out.println("Alugar Livro");
+
+				System.out.println("Insira o Id do Cliente");
+				idCliente = leia.nextInt();
+				System.out.println("Insira o Id do Livro");
+				idLivro = leia.nextInt();
+				System.out.println("A data de Aluguel: ");
+				leia.skip("\\R?");
+				dataAluguel = leia.nextLine();
+				System.out.println("A data de Devolução: ");
+				leia.skip("\\R?");
+				dataDevolucao = leia.nextLine();
+
+				Emprestimo e1 = new Emprestimo(idCliente, idLivro, dataAluguel, dataDevolucao);
+
+				if (clientes.buscarClienteCollection(idCliente) != null
+						&& livros.buscarLivroNaCollectio(idLivro) != null) {
+					emprestimos.registrarEmprestimo(e1);
+
+				} else {
+					System.out.println("ID's  não encontrados");
+				}
+
 				keyPress();
 			}
 			case 10 -> {
-				System.out.println("Listar Livros Alugados");
+				System.out.println("\nListar Livros Alugados");
+				System.out.println("=======================");
+
+				emprestimos.listarLivrosAlugados();
 				keyPress();
 			}
 			default -> {

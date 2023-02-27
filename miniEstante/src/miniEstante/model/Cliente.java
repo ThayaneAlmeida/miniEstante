@@ -4,26 +4,11 @@ public class Cliente {
 
 	private String nome;
 	private String endereco;
-<<<<<<< HEAD
-<<<<<<< HEAD
 	private String telefone;
-	private static int contadorId = 1;
 	private int idCliente;
-
-	public Cliente(String nome, String endereco, String telefone, int i) {
-=======
-	private long telefone;
-	private static int contadorId = 1;
-	private int idCliente;
-
-	public Cliente(String nome, String endereco, long telefone, int i) {
->>>>>>> 5162bed21742fbfbb2ae50811b56e48f772afdb5
-=======
-	private String telefone;
-	private int idCliente = 1;
 
 	public Cliente(String nome, String endereco, String telefone, int idCliente) {
->>>>>>> cliente
+
 		super();
 		this.nome = nome;
 		this.endereco = endereco;
