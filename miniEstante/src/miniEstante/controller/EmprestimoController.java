@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 import miniEstante.model.Emprestimo;
 import miniEstante.repository.EmprestimoRepository;
-
-import miniEstante.controller.ClienteController.*;
+import miniEstante.controller.ClienteController;
 
 public class EmprestimoController implements EmprestimoRepository {
 
@@ -25,20 +24,26 @@ public class EmprestimoController implements EmprestimoRepository {
 	@Override
 	public void listarLivrosAlugados() {
 
-		for (var emprestimo : listaEmprestimo)
-			emprestimo.visualizar();
+		if (listaEmprestimo.size() != 0) {
 
+			for (var emprestimo : listaEmprestimo) {
+				emprestimo.visualizar();
+			}
+
+		} else
+			System.out.println("\nSem empréstimos efetuados");
 	}
 
 	@Override
 	public void registrarEmprestimo(Emprestimo e1) {
-		var idCliente = e1.getIdCliente();
 
-	/*	if (idCliente != null) {
-			listaEmprestimo.add(e1);
-			System.out.println("Empréstimo Registrado!");
-		}
-	*/
+		// int idCliente = e1.getIdCliente();
+
+		// ClienteController c1 = new
+		// ClienteController().buscarClienteCollection(idCliente);
+		listaEmprestimo.add(e1);
+		System.out.println("Empréstimo Registrado!");
+
 	}
 
 	@Override

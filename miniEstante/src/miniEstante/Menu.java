@@ -218,12 +218,25 @@ public class Menu {
 				
 				Emprestimo e1 = new Emprestimo(idCliente, idLivro, dataAluguel, dataDevolucao);
 				
-				emprestimos.registrarEmprestimo(e1);
+				if(clientes.buscarClienteCollection(idCliente) != null 
+						&& livros.buscarLivroNaCollectio(idLivro) != null)
+				{
+					emprestimos.registrarEmprestimo(e1);
+					
+				}else {
+					System.out.println("Dados não encontrados");
+				}
+				
+				
+				
 				
 				keyPress();
 			}
 			case 10 -> {
-				System.out.println("Listar Livros Alugados");
+				System.out.println("\nListar Livros Alugados");
+				System.out.println("=======================");
+				
+				emprestimos.listarLivrosAlugados();
 				keyPress();
 			}
 			default -> {

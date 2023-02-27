@@ -20,7 +20,7 @@ public class LivroController implements LivroRepository{
 	@Override
 	public void atualizar(Livro livro) {
 		var procurarLivro = buscarLivroNaCollectio(livro.getNumero());
-		if (livro != null) {
+		if (procurarLivro != null) {
 			listaLivro.set(listaLivro.indexOf(procurarLivro), livro);
 			System.out.println("O livro foi encontrado");
 		}else
