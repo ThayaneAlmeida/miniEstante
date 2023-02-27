@@ -15,6 +15,7 @@ public class Menu {
 
 		Scanner leia = new Scanner(System.in);
 
+<<<<<<< HEAD
 		Cliente c1 = new Cliente("Danilo Moraes", "Avenida Lírio Branco", "(11)999999999", clientes.gerarIdCliente());
 		clientes.cadastrar(c1);
 
@@ -34,11 +35,38 @@ public class Menu {
 		clientes.cadastrar(c6);
 
 		Cliente c7 = new Cliente("Thayane Almeida", "Rua Pedro Afonso", "(11)999999999", clientes.gerarIdCliente());
+=======
+		Cliente c1 = new Cliente("Danilo Moraes", "Rua Lírio Branco", "(11)999999999", clientes.gerarIdCliente());
+		clientes.cadastrar(c1);
+
+		Cliente c2 = new Cliente("Gabriel Farias", "Rua Cachoeira do Iguaçu", "(11)999999999",
+				clientes.gerarIdCliente());
+		clientes.cadastrar(c2);
+
+		Cliente c3 = new Cliente("Gustavo Santiago", "Alameda Castro Gomes", "(11)999999999",
+				clientes.gerarIdCliente());
+		clientes.cadastrar(c3);
+
+		Cliente c4 = new Cliente("Laise Farias", "Rua do Lazer", "(11)999999999", clientes.gerarIdCliente());
+		clientes.cadastrar(c4);
+
+		Cliente c5 = new Cliente("Lucas Marinho", "Avenida João Augusto", "(11)999999999", clientes.gerarIdCliente());
+		clientes.cadastrar(c5);
+
+		Cliente c6 = new Cliente("Rebeca Damas", "Rua do Limoeiro", "(11)999999999", clientes.gerarIdCliente());
+		clientes.cadastrar(c6);
+
+		Cliente c7 = new Cliente("Thayane Almeida", "Alameda das Crianças", "(11)999999999", clientes.gerarIdCliente());
+>>>>>>> cliente
 		clientes.cadastrar(c7);
 
 		int opcao = 0;
 		String nome, endereco, telefone;
+<<<<<<< HEAD
 		int idCliente = 0;
+=======
+		int idCliente;
+>>>>>>> cliente
 
 		while (true) {
 			System.out.println("===============================================");
@@ -78,7 +106,7 @@ public class Menu {
 			switch (opcao) {
 			case 1 -> {
 
-				System.out.println("Cadastrar Cliente\n\n");
+				System.out.println("Cadastrar Cliente");
 
 				System.out.println("Digitar o Nome do Cliente: ");
 				leia.skip("\\R?");
@@ -92,12 +120,12 @@ public class Menu {
 				leia.skip("\\R?");
 				telefone = leia.nextLine();
 
-				clientes.cadastrar(new Cliente(nome, endereco, telefone, idCliente));
+				clientes.cadastrar(new Cliente(nome, endereco, telefone, clientes.gerarIdCliente()));
 
 				keyPress();
 			}
 			case 2 -> {
-				System.out.println("Listar Clientes\n\n");
+				System.out.println("Listar Clientes");
 				clientes.listarClientes();
 				keyPress();
 			}
@@ -128,13 +156,18 @@ public class Menu {
 				keyPress();
 			}
 			case 4 -> {
-				System.out.println("Excluir Cadastro\n\n");
+				System.out.println("Excluir Cadastro");
 
+<<<<<<< HEAD
 				System.out.println("IdCliente: ");
 				idCliente = leia.nextInt();
+=======
+				System.out.println("Id do Cliente: ");
+				idCliente = leia.nextInt();
 
-				clientes.deletarCliente(nome);
-				
+				clientes.deletarCliente(idCliente);
+>>>>>>> cliente
+
 				keyPress();
 			}
 			case 5 -> {

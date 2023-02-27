@@ -49,14 +49,14 @@ public class ClienteController implements ClienteRepository {
 	}
 
 	@Override
-	public void deletarCliente(String nomeCliente) {
-		var cliente = buscarClienteNome(nomeCliente);
+	public void deletarCliente(int idCliente) {
+		var cliente = buscarClienteCollection(idCliente);
 
 		if (cliente != null) {
 			if (listaClientes.remove(cliente) == true)
-				System.out.println("\nO cliente " + nomeCliente + " foi deletado!");
+				System.out.println("\nO cliente " + idCliente + " foi deletado!");
 		} else
-			System.out.println("\nO cliente " + nomeCliente + " nao foi encontrado!");
+			System.out.println("\nO cliente " + idCliente + " nao foi encontrado!");
 
 	}
 
@@ -68,21 +68,8 @@ public class ClienteController implements ClienteRepository {
 		return null;
 	}
 
-	public Cliente buscarClienteNome(String nomeCliente) {
-		for (var cliente : listaClientes) {
-			if (cliente.getNome().equalsIgnoreCase(nomeCliente))
-				return cliente;
-		}
-		return null;
-	}
-
 	public int gerarIdCliente() {
 		return listaClientes.size() + 1;
 	}
 
-	@Override
-	public void deletarCliente(int idCliente) {
-		// TODO Auto-generated method stub
-		
-	}
 }
