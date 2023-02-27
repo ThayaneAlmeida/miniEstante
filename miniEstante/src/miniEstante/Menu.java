@@ -108,7 +108,8 @@ public class Menu {
 				leia.skip("\\R?");
 				nome = leia.nextLine();
 
-				clientes.deletarCliente(idCliente);
+				clientes.deletarCliente(nome);
+				
 				keyPress();
 			}
 			case 5 -> {

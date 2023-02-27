@@ -14,5 +14,7 @@ public interface ClienteRepository {
 
 	public void deletarCliente(int idCliente);
 
+	void deletarCliente(String nomeCliente);
+
 
 }
