@@ -97,9 +97,9 @@ public class Menu {
 				keyPress();
 			}
 			case 3 -> {
-				System.out.println("Atualizar Cadastro\n\n");
+				System.out.println("Atualizar Cadastro");
 
-				System.out.println("\n\nId Cliente: ");
+				System.out.println("Id Cliente: ");
 				idCliente = leia.nextInt();
 
 				if (clientes.buscarClienteCollection(idCliente) != null) {
