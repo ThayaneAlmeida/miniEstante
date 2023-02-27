@@ -133,7 +133,8 @@ public class Menu {
 				System.out.println("IdCliente: ");
 				idCliente = leia.nextInt();
 
-				clientes.deletarCliente(idCliente);
+				clientes.deletarCliente(nome);
+				
 				keyPress();
 			}
 			case 5 -> {
