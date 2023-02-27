@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import miniEstante.controller.ClienteController;
+import miniEstante.controller.EmprestimoController;
 import miniEstante.controller.LivroController;
 import miniEstante.model.Cliente;
+import miniEstante.model.Emprestimo;
 import miniEstante.model.Livro;
 
 public class Menu {
@@ -15,6 +17,10 @@ public class Menu {
 		ClienteController clientes = new ClienteController();
 		
 		LivroController livros = new LivroController();
+		
+		EmprestimoController emprestimos = new EmprestimoController();
+		
+		
 		
 		String titulo;
 		
@@ -56,7 +62,10 @@ public class Menu {
 		int opcao = 0;
 		String nome, endereco, telefone;
 		int idCliente = 0;
-
+		
+		String dataAluguel, dataDevolucao;
+		
+		
 		while (true) {
 			System.out.println("===============================================");
 			System.out.println("                                               ");
@@ -195,6 +204,22 @@ public class Menu {
 			}
 			case 9 -> {
 				System.out.println("Alugar Livro");
+				
+				System.out.println("Insira o Id do Cliente");
+				idCliente = leia.nextInt();
+				System.out.println("Insira o Id do Livro");
+				idLivro = leia.nextInt();
+				System.out.println("A data de Aluguel: ");
+				leia.skip("\\R?");
+				dataAluguel = leia.nextLine();
+				System.out.println("A data de Devolução: ");
+				leia.skip("\\R?");
+				dataDevolucao = leia.nextLine();
+				
+				Emprestimo e1 = new Emprestimo(idCliente, idLivro, dataAluguel, dataDevolucao);
+				
+				emprestimos.registrarEmprestimo(e1);
+				
 				keyPress();
 			}
 			case 10 -> {

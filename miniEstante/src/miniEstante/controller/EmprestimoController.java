@@ -1,10 +1,11 @@
 package miniEstante.controller;
 
-
 import java.util.ArrayList;
 
 import miniEstante.model.Emprestimo;
 import miniEstante.repository.EmprestimoRepository;
+
+import miniEstante.controller.ClienteController.*;
 
 public class EmprestimoController implements EmprestimoRepository {
 
@@ -13,8 +14,8 @@ public class EmprestimoController implements EmprestimoRepository {
 	@Override
 	public void procuraLivroAlugado(int idLivro) {
 		var livro = buscarAluguelNaCollection(idLivro);
-		
-		if(livro == null)
+
+		if (livro == null)
 			System.out.println("O livro " + idLivro + " não foi encontrado!");
 		else
 			livro.visualizar();
@@ -30,34 +31,38 @@ public class EmprestimoController implements EmprestimoRepository {
 	}
 
 	@Override
-	public void registrarEmprestimo(Emprestimo emprestimo) {
-		listaEmprestimo.add(emprestimo);
-		System.out.println("Empréstimo Registrado!");
+	public void registrarEmprestimo(Emprestimo e1) {
+		var idCliente = e1.getIdCliente();
+
+	/*	if (idCliente != null) {
+			listaEmprestimo.add(e1);
+			System.out.println("Empréstimo Registrado!");
+		}
+	*/
 	}
 
 	@Override
 	public void renovarEmprestimo(Emprestimo emprestimo) {
-	 var buscaEmprestimo = buscarAluguelNaCollection(emprestimo.getIdLivro());
-	 
-	 if(buscaEmprestimo != null) {
-		 listaEmprestimo.set(listaEmprestimo.indexOf(buscaEmprestimo), emprestimo);
-		 System.out.println("O empréstimo número " + emprestimo.getIdLivro() + "não foi encontrada!" );
-	 }else
-		 System.out.println("O empréstimo número " + emprestimo.getIdLivro() + "foi atualizado!" );
-		
+		var buscaEmprestimo = buscarAluguelNaCollection(emprestimo.getIdLivro());
+
+		if (buscaEmprestimo != null) {
+			listaEmprestimo.set(listaEmprestimo.indexOf(buscaEmprestimo), emprestimo);
+			System.out.println("O empréstimo número " + emprestimo.getIdLivro() + "não foi encontrada!");
+		} else
+			System.out.println("O empréstimo número " + emprestimo.getIdLivro() + "foi atualizado!");
+
 	}
 
 	@Override
 	public void deletarEmprestimo(long idLivro) {
 		var emprestimo = buscarAluguelNaCollection(idLivro);
-		
-		if(emprestimo != null) {
-			if(listaEmprestimo.remove(emprestimo)== true)
+
+		if (emprestimo != null) {
+			if (listaEmprestimo.remove(emprestimo) == true)
 				System.out.println("O Empréstimo " + idLivro + " foi retirado da lista!");
-		}else
+		} else
 			System.out.println("O Empréstimo " + idLivro + " não foi encontrado!");
 	}
-
 
 	public Emprestimo buscarAluguelNaCollection(long idLivro) {
 		for (var emprestimo : listaEmprestimo) {

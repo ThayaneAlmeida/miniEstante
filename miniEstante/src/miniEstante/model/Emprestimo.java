@@ -2,13 +2,13 @@ package miniEstante.model;
 
 public class Emprestimo {
 
-	long idCliente;
-	long idLivro;
+	int idCliente;
+	int idLivro;
 	String dataAluguel;
 	String dataDevolucao;
 	
 	
-	public Emprestimo(long idCliente, long idLivro, String dataAluguel, String dataDevolucao) {
+	public Emprestimo(int idCliente, int idLivro, String dataAluguel, String dataDevolucao) {
 		this.idCliente = idCliente;
 		this.idLivro = idLivro;
 		this.dataAluguel = dataAluguel;
@@ -20,7 +20,7 @@ public class Emprestimo {
 		return idCliente;
 	}
 
-	public void setIdCliente(long idCliente) {
+	public void setIdCliente(int idCliente) {
 		this.idCliente = idCliente;
 	}
 
@@ -30,7 +30,7 @@ public class Emprestimo {
 
 
 
-	public void setIdLivro(long idLivro) {
+	public void setIdLivro(int idLivro) {
 		this.idLivro = idLivro;
 	}
 
