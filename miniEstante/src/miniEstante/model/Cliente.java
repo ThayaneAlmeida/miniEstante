@@ -4,15 +4,16 @@ public class Cliente {
 
 	private String nome;
 	private String endereco;
-	private long telefone;
+	private String telefone;
+	private static int contadorId = 1;
 	private int idCliente;
 
-	public Cliente(String nome, String endereco, long telefone, int idCliente) {
+	public Cliente(String nome, String endereco, String telefone, int idCliente) {
 		super();
 		this.nome = nome;
 		this.endereco = endereco;
 		this.telefone = telefone;
-		this.idCliente = idCliente;
+		this.idCliente = contadorId++;
 	}
 
 	public String getNome() {
@@ -31,11 +32,11 @@ public class Cliente {
 		this.endereco = endereco;
 	}
 
-	public long getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(long telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 
@@ -49,10 +50,17 @@ public class Cliente {
 
 	public void visualizar() {
 
+		System.out.println("**************************************************");
+		System.out.println("                                                  ");
+		System.out.println("Dados do Cliente");
+		System.out.println("**************************************************");
+		System.out.println("Id: " + this.idCliente);
 		System.out.println("Nome do Cliente: " + this.nome);
 		System.out.println("Endereço: " + this.endereco);
 		System.out.println("Telefone: " + this.telefone);
-		System.out.println("Id: " + this.idCliente);
+		System.out.println("                                                  ");
+		System.out.println("**************************************************");
 
 	}
+
 }

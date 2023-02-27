@@ -71,4 +71,5 @@ public class ClienteController implements ClienteRepository {
 	public int gerarIdCliente() {
 		return listaClientes.size() + 1;
 	}
+
 }

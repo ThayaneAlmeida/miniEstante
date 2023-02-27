@@ -30,12 +30,31 @@ public class Menu {
 		
 		Scanner leia = new Scanner(System.in);
 
-		Cliente c1 = new Cliente("Rebeca Damas", "Rua X", 949752214, clientes.gerarIdCliente());
+		Cliente c1 = new Cliente("Danilo Moraes", "Rua Lírio Branco", "(11)999999999", clientes.gerarIdCliente());
 		clientes.cadastrar(c1);
 
+		Cliente c2 = new Cliente("Gabriel Farias", "Rua Cachoeira do Iguaçu", "(11)999999999",
+				clientes.gerarIdCliente());
+		clientes.cadastrar(c2);
+
+		Cliente c3 = new Cliente("Gustavo Santiago", "Alameda Castro Gomes", "(11)999999999",
+				clientes.gerarIdCliente());
+		clientes.cadastrar(c3);
+
+		Cliente c4 = new Cliente("Laise Farias", "Rua do Lazer", "(11)999999999", clientes.gerarIdCliente());
+		clientes.cadastrar(c4);
+
+		Cliente c5 = new Cliente("Lucas Marinho", "Avenida João Augusto", "(11)999999999", clientes.gerarIdCliente());
+		clientes.cadastrar(c5);
+
+		Cliente c6 = new Cliente("Rebeca Damas", "Rua do Limoeiro", "(11)999999999", clientes.gerarIdCliente());
+		clientes.cadastrar(c6);
+
+		Cliente c7 = new Cliente("Thayane Almeida", "Alameda das Crianças", "(11)999999999", clientes.gerarIdCliente());
+		clientes.cadastrar(c7);
+
 		int opcao = 0;
-		String nome, endereco;
-		long telefone;
+		String nome, endereco, telefone;
 		int idCliente = 0;
 
 		while (true) {
@@ -81,7 +100,8 @@ public class Menu {
 				endereco = leia.nextLine();
 
 				System.out.println("Digitar o Telefone do Cliente: ");
-				telefone = leia.nextLong();
+				leia.skip("\\R?");
+				telefone = leia.nextLine();
 
 				clientes.cadastrar(new Cliente(nome, endereco, telefone, idCliente));
 
@@ -109,7 +129,8 @@ public class Menu {
 					endereco = leia.nextLine();
 
 					System.out.println("Número de Telefone:");
-					telefone = leia.nextInt();
+					leia.skip("\\R?");
+					telefone = leia.nextLine();
 
 					clientes.atualizar(new Cliente(nome, endereco, telefone, idCliente));
 
@@ -120,11 +141,11 @@ public class Menu {
 			case 4 -> {
 				System.out.println("Excluir Cadastro\n\n");
 
-				System.out.println("Nome do Cliente: ");
-				leia.skip("\\R?");
-				nome = leia.nextLine();
+				System.out.println("Id do Cliente: ");
+				idCliente = leia.nextInt();
 
 				clientes.deletarCliente(idCliente);
+
 				keyPress();
 			}
 			case 5 -> {
