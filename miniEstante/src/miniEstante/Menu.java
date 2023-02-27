@@ -22,8 +22,6 @@ public class Menu {
 		long telefone;
 		int idCliente = 0;
 
-
-
 		while (true) {
 			System.out.println("===============================================");
 			System.out.println("                                               ");
@@ -41,12 +39,13 @@ public class Menu {
 			System.out.println("\t8- Excluir Livro");
 			System.out.println("\t9- Alugar Livro");
 			System.out.println("\t10- Listar Livros Alugados");
+			System.out.println("\t0- Listar Livros Alugados");
 			System.out.println("===============================================");
 			System.out.println("Digite a opção desejada: ");
 
 			opcao = leia.nextInt();
 
-			if (opcao == 5) {
+			if (opcao == 0) {
 				System.out.println("Obrigade por ter visitado a Mini Estante! Nos vemos logo...");
 				leia.close();
 				System.exit(0);
@@ -54,7 +53,6 @@ public class Menu {
 
 			switch (opcao) {
 			case 1 -> {
-
 
 				System.out.println("Cadastrar Cliente\n\n");
 
