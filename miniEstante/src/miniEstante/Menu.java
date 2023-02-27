@@ -125,7 +125,7 @@ public class Menu {
 			case 4 -> {
 				System.out.println("Excluir Cadastro\n\n");
 
-				System.out.println("Nome do Cliente: ");
+				System.out.println("Id do Cliente: ");
 				idCliente = leia.nextInt();
 
 				clientes.deletarCliente(idCliente);
