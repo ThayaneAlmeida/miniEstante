@@ -37,10 +37,6 @@ public class EmprestimoController implements EmprestimoRepository {
 	@Override
 	public void registrarEmprestimo(Emprestimo e1) {
 
-		// int idCliente = e1.getIdCliente();
-
-		// ClienteController c1 = new
-		// ClienteController().buscarClienteCollection(idCliente);
 		listaEmprestimo.add(e1);
 		System.out.println("Empréstimo Registrado!");
 
@@ -59,7 +55,7 @@ public class EmprestimoController implements EmprestimoRepository {
 	}
 
 	@Override
-	public void deletarEmprestimo(long idLivro) {
+	public void deletarEmprestimo(int idLivro) {
 		var emprestimo = buscarAluguelNaCollection(idLivro);
 
 		if (emprestimo != null) {
@@ -69,7 +65,7 @@ public class EmprestimoController implements EmprestimoRepository {
 			System.out.println("O Empréstimo " + idLivro + " não foi encontrado!");
 	}
 
-	public Emprestimo buscarAluguelNaCollection(long idLivro) {
+	public Emprestimo buscarAluguelNaCollection(int idLivro) {
 		for (var emprestimo : listaEmprestimo) {
 			if (emprestimo.getIdLivro() == idLivro)
 				return emprestimo;

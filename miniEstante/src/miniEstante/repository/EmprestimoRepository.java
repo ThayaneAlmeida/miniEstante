@@ -11,7 +11,7 @@ public interface EmprestimoRepository {
 	
 	public void registrarEmprestimo(Emprestimo emprestimo);
 	public void renovarEmprestimo(Emprestimo emprestimo);
-	public void deletarEmprestimo(long idLivro);
+	public void deletarEmprestimo(int idLivro);
 
 
 }

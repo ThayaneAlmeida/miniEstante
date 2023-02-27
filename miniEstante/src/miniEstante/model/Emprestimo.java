@@ -15,16 +15,21 @@ public class Emprestimo {
 		this.dataDevolucao = dataDevolucao;
 	}
 	
-	
-	public long getIdCliente() {
+
+
+	public int getIdCliente() {
 		return idCliente;
 	}
+
+
 
 	public void setIdCliente(int idCliente) {
 		this.idCliente = idCliente;
 	}
 
-	public long getIdLivro() {
+
+
+	public int getIdLivro() {
 		return idLivro;
 	}
 
@@ -33,6 +38,8 @@ public class Emprestimo {
 	public void setIdLivro(int idLivro) {
 		this.idLivro = idLivro;
 	}
+
+
 
 	public String getDataAluguel() {
 		return dataAluguel;

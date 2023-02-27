@@ -224,11 +224,8 @@ public class Menu {
 					emprestimos.registrarEmprestimo(e1);
 					
 				}else {
-					System.out.println("Dados não encontrados");
+					System.out.println("ID's  não encontrados");
 				}
-				
-				
-				
 				
 				keyPress();
 			}
