@@ -4,14 +4,30 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import miniEstante.controller.ClienteController;
+import miniEstante.controller.LivroController;
 import miniEstante.model.Cliente;
+import miniEstante.model.Livro;
 
 public class Menu {
 
 	public static void main(String[] args) {
 
 		ClienteController clientes = new ClienteController();
-
+		
+		LivroController livros = new LivroController();
+		
+		String titulo;
+		
+		String autor;
+		
+		String opcao2 = "";
+		
+		int idLivro = 0;
+		
+		int ano, att=0;
+		
+		int alugado;
+		
 		Scanner leia = new Scanner(System.in);
 
 		Cliente c1 = new Cliente("Rebeca Damas", "Rua X", 949752214, clientes.gerarIdCliente());
@@ -113,18 +129,47 @@ public class Menu {
 			}
 			case 5 -> {
 				System.out.println("Cadastrar Livro");
+				System.out.println("Digite o Titulo do livro: ");
+				leia.skip("\\R?");
+				titulo = leia.nextLine();
+				System.out.println("Digite o Autor: ");
+				leia.skip("\\R?");
+				autor = leia.nextLine();
+				System.out.println("Digite o Ano: ");
+				ano = leia.nextInt();
+				System.out.println("Digite a Disponibilidade(1- Alugado/ 2- Disponível): ");
+				alugado = leia.nextInt();
+				livros.cadastrar(new Livro ( livros.gerarNumero(), titulo, autor, ano, alugado));
 				keyPress();
 			}
 			case 6 -> {
 				System.out.println("Listar Livros");
+				livros.listarLivro();
 				keyPress();
 			}
 			case 7 -> {
 				System.out.println("Atualizar Livro");
+				System.out.println("Digite o id do Livro: ");
+				idLivro = leia.nextInt();
+				if (livros.buscarLivroNaCollectio(idLivro) != null) {
+					System.out.println("Digite o Titulo: ");
+					leia.skip("\\R?");
+					titulo = leia.nextLine();
+					System.out.println("Digite o Autor: ");
+					autor = leia.nextLine();
+					System.out.println("Digite o Ano: ");
+					ano = leia.nextInt();
+					System.out.println("Digite a Disponibilidade: ");
+					att = leia.nextInt();
+					livros.atualizar(new Livro (idLivro, titulo, autor, ano, att));
+				}
 				keyPress();
 			}
 			case 8 -> {
 				System.out.println("Excluir Livro");
+				System.out.println("Digite o id do Livro: ");
+				idLivro = leia.nextInt();
+				livros.deletarLivro(idLivro);
 				keyPress();
 			}
 			case 9 -> {

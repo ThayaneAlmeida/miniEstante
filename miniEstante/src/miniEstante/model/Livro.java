@@ -59,19 +59,18 @@ public class Livro {
 	
 	
 	public void visualizar() {
-		
-		int opcao = 0;
-		
-		switch(opcao) {
-		case 1 -> System.out.println("Alugado");
-		case 2 -> System.out.println("Disponível");
+		String opcao2 ="";
+		switch (this.alugado) {
+		case 1 -> opcao2 = "Alugado";
+		case 2 -> opcao2 = "Disponível";
 		}
-		
+		System.out.println("===============================================");
 		System.out.println("Numero do livro: " + this.numero);
 		System.out.println("Titulo do livro: " + this.titulo);
 		System.out.println("Autor do livro: " + this.autor);
 		System.out.println("Ano do livro: " + this.ano);
-		System.out.println("Status do livro: " + opcao);
+		System.out.println("Status do livro: " + opcao2);
+		System.out.println("===============================================");
 	}
 
 }

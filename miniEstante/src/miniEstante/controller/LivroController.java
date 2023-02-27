@@ -8,6 +8,8 @@ import miniEstante.repository.LivroRepository;
 public class LivroController implements LivroRepository{
 	
 	private ArrayList<Livro>listaLivro = new ArrayList<Livro>();
+	
+	int numero = 0;
 
 	@Override
 	public void cadastrar(Livro livro) {
@@ -17,8 +19,12 @@ public class LivroController implements LivroRepository{
 
 	@Override
 	public void atualizar(Livro livro) {
-
-		
+		var procurarLivro = buscarLivroNaCollectio(livro.getNumero());
+		if (livro != null) {
+			listaLivro.set(listaLivro.indexOf(procurarLivro), livro);
+			System.out.println("O livro foi encontrado");
+		}else
+			System.out.println("O livro não foi encontrado");
 	}
 
 	@Override
@@ -57,6 +63,8 @@ public class LivroController implements LivroRepository{
 		}
 		return null;
 	}
-
+	public int gerarNumero() {
+			return ++numero;
+		}
 
 }
