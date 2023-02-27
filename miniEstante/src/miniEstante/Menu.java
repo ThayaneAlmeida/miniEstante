@@ -1,6 +1,7 @@
 package miniEstante;
 
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import miniEstante.controller.ClienteController;
@@ -14,12 +15,29 @@ public class Menu {
 
 		Scanner leia = new Scanner(System.in);
 
-		Cliente c1 = new Cliente("Rebeca Damas", "Rua X", 949752214, clientes.gerarIdCliente());
+		Cliente c1 = new Cliente("Danilo Moraes", "Avenida Lírio Branco", "(11)999999999", clientes.gerarIdCliente());
 		clientes.cadastrar(c1);
 
+		Cliente c2 = new Cliente("Gabriel Farias", "Alameda Manoel Lopes", "(11)999999999", clientes.gerarIdCliente());
+		clientes.cadastrar(c2);
+
+		Cliente c3 = new Cliente("Gustavo Santiago", "Avenida Rio Amarelo", "(11)999999999", clientes.gerarIdCliente());
+		clientes.cadastrar(c3);
+
+		Cliente c4 = new Cliente("Laise Farias", "Avenida Castro Gomes", "(11)999999999", clientes.gerarIdCliente());
+		clientes.cadastrar(c4);
+
+		Cliente c5 = new Cliente("Lucas Marinho", "Alameda João Silva", "(11)999999999", clientes.gerarIdCliente());
+		clientes.cadastrar(c5);
+
+		Cliente c6 = new Cliente("Rebeca Damas", "Rua Lago do Sul", "(11)999999999", clientes.gerarIdCliente());
+		clientes.cadastrar(c6);
+
+		Cliente c7 = new Cliente("Thayane Almeida", "Rua Pedro Afonso", "(11)999999999", clientes.gerarIdCliente());
+		clientes.cadastrar(c7);
+
 		int opcao = 0;
-		String nome, endereco;
-		long telefone;
+		String nome, endereco, telefone;
 		int idCliente = 0;
 
 		while (true) {
@@ -43,7 +61,13 @@ public class Menu {
 			System.out.println("===============================================");
 			System.out.println("Digite a opção desejada: ");
 
-			opcao = leia.nextInt();
+			try {
+				opcao = leia.nextInt();
+			} catch (InputMismatchException e) {
+				System.out.println("\nDigite a tecla Enter!");
+				leia.nextLine();
+				opcao = 0;
+			}
 
 			if (opcao == 0) {
 				System.out.println("Obrigade por ter visitado a Mini Estante! Nos vemos logo...");
@@ -65,7 +89,8 @@ public class Menu {
 				endereco = leia.nextLine();
 
 				System.out.println("Digitar o Telefone do Cliente: ");
-				telefone = leia.nextLong();
+				leia.skip("\\R?");
+				telefone = leia.nextLine();
 
 				clientes.cadastrar(new Cliente(nome, endereco, telefone, idCliente));
 
@@ -93,7 +118,8 @@ public class Menu {
 					endereco = leia.nextLine();
 
 					System.out.println("Número de Telefone:");
-					telefone = leia.nextInt();
+					leia.skip("\\R?");
+					telefone = leia.nextLine();
 
 					clientes.atualizar(new Cliente(nome, endereco, telefone, idCliente));
 
@@ -104,9 +130,8 @@ public class Menu {
 			case 4 -> {
 				System.out.println("Excluir Cadastro\n\n");
 
-				System.out.println("Nome do Cliente: ");
-				leia.skip("\\R?");
-				nome = leia.nextLine();
+				System.out.println("IdCliente: ");
+				idCliente = leia.nextInt();
 
 				clientes.deletarCliente(idCliente);
 				keyPress();
@@ -143,6 +168,7 @@ public class Menu {
 			}
 
 		}
+
 	}
 
 	public static void keyPress() {
@@ -154,10 +180,7 @@ public class Menu {
 
 		} catch (IOException e) {
 
-			System.out.println("Você pressionou uma tecla diferente de enter!");
-
 		}
-
 	}
 
 }
