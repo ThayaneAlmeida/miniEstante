@@ -39,7 +39,7 @@ public class Menu {
 
 		int opcao = 0;
 		String nome, endereco, telefone;
-		int idCliente = 0;
+		int idCliente;
 
 		while (true) {
 			System.out.println("===============================================");
@@ -87,7 +87,7 @@ public class Menu {
 				leia.skip("\\R?");
 				telefone = leia.nextLine();
 
-				clientes.cadastrar(new Cliente(nome, endereco, telefone, idCliente));
+				clientes.cadastrar(new Cliente(nome, endereco, telefone, clientes.gerarIdCliente()));
 
 				keyPress();
 			}

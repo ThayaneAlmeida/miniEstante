@@ -5,15 +5,14 @@ public class Cliente {
 	private String nome;
 	private String endereco;
 	private String telefone;
-	private static int contadorId = 1;
-	private int idCliente;
+	private int idCliente = 1;
 
 	public Cliente(String nome, String endereco, String telefone, int idCliente) {
 		super();
 		this.nome = nome;
 		this.endereco = endereco;
 		this.telefone = telefone;
-		this.idCliente = contadorId++;
+		this.idCliente = idCliente;
 	}
 
 	public String getNome() {
