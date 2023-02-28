@@ -319,7 +319,7 @@ public class Menu {
 
 				} while (dataDevolucao.isEmpty());
 
-				Emprestimo e1 = new Emprestimo(idCliente, idLivro, dataAluguel, dataDevolucao);
+				Emprestimo e1 = new Emprestimo(idCliente, idLivro, dataAluguel, dataDevolucao, emprestimos.gerarIdEmprestimo());
 
 
 				if (clientes.buscarClienteCollection(idCliente) != null

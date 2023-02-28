@@ -39,6 +39,7 @@ public class EmprestimoController implements EmprestimoRepository {
 	@Override
 	public void registrarEmprestimo(Emprestimo e1) {
 
+		gerarIdEmprestimo();
 		listaEmprestimo.add(e1);
 		System.out.println("Empréstimo Registrado!");
 
