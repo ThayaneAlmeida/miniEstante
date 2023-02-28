@@ -15,31 +15,21 @@ Projeto desenvolvido durante o curso da Generation Brasil<br>
 Desenvolvimento de projeto feito pelo Grupo 4 <br>
 Projeto Java para conclusão do Bloco I do curso da Generation Brasil - Pessoa Desenvolvedora Java <br>
 <br>
-Essa aplicação simula uma biblioteca virtual na qual há 2 perfis de acesso : 
- - Usuário
- - Administrador do sistema 
-
+Essa aplicação simula uma biblioteca virtual na qual há um perfil de acesso  
+ 
 ## Funcionalidades 💻
 🙍 O Usuário é capaz de :
-- [x] fazer login
-- [x] cadastrar
-- [x] entrar na sua homePage
-- [x] ver os livros disponíveis
-- [x] buscar livro 
-- [x] devolver o livro
-- [x] trocar o livro 
-
-👨‍💻 o Administrador do sistema é capaz de :
-- [x] fazer o login como administrador
-- [x] cadastrar usuário
-- [x] excluir usuário
-- [x] ver lista de todos os usuários cadastrados
-- [x] buscar livro 
-- [x] ver os livros 
-- [x] devolver livros 
-- [x] trocar livros 
-
-
+- [x] Cadastrar Cliente
+- [x] Listar Clientes
+- [x] Atualizar Cadastro
+- [x] Excluir Cadastro
+- [x] Cadastrar Livro
+- [x] Listar Livros
+- [x] Atualizar Livro
+- [x] Excluir Livro
+- [x] Alugar Livro
+- [x] Listar Livros Alugados
+- [x] Sair
 
 ## Stack utilizada
 
@@ -84,25 +74,29 @@ cd miniEstante
 5. Clique em **"Directory" e selecione a pasta do projeto clonado.**
 6. Clique em **"Finish" e o projeto será aberto no Eclipse.**
 
-
-
-## Screenshots
-
 ## Demonstração
+
+
+https://user-images.githubusercontent.com/91226847/221784045-2eaf3d50-7238-4f4d-a1f1-1dd8b4f20c07.mp4
+
 
 
 ## 📌  Sobre o desenvolvimento
 
  Foram x dias de desenvolvimento <br>
-   O desenvolvimento do projeto em grupo foi bem sucedido devido às ferramentas e recursos disponíveis para a nossa utilização. Utilizamos a plataforma de gerenciamento de projetos TRELLO para rastrear o progresso do projeto.<br>
-   Esta plataforma não só nos permitiu monitorar o progresso da equipe, mas também ajudou a criar um ambiente de colaboração entre todos. Além disso, nos reunimos regularmente pelo Discord para compartilhar ideias e discutir possíveis melhorias.<br>
+   O desenvolvimento do projeto em grupo foi bem sucedido devido às ferramentas e recursos disponíveis para a nossa utilização. Nos reunimos regularmente pelo Discord para compartilhar ideias e discutir possíveis melhorias.<br>
    Estamos trabalhando para no futuro implementar melhorias significativas, como a criação de um banco de dados  para facilitar as funcionalidades . Além disso, estamos nos esforçando para tornar nosso sistema mais seguro e escalável para que possamos atender às necessidades dos usuários.<br>
 Todos os membros do grupo trabalharam diligentemente para criar um projeto funcional em Java. Cada membro contribuiu de alguma forma, desde a codificação  até a documentação do projeto.<br>
 Todos os membros da equipe contribuíram para o sucesso do projeto, e todos merecem muito crédito pela conclusão do projeto.
 
 
 ## Pontos de melhoria
-
+- Adicionar integração com  banco de dados
+- Adicionar novas funcionalidade
+- Fazer o Front-end do projeto 
+- Integração com API
+- Adicionar documentação
+- Adicionar rotas e Testes 
 
 ---
 ## Desenvolvido por:
@@ -169,8 +163,6 @@ Todos os membros da equipe contribuíram para o sucesso do projeto, e todos mere
   </tr>
 </table>
 </div>
-
-## Agradecimentos
 
 ## Contribuindo
 
