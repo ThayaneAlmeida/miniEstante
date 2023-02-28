@@ -15,25 +15,23 @@ public class Menu {
 	public static void main(String[] args) {
 
 		ClienteController clientes = new ClienteController();
-		
+
 		LivroController livros = new LivroController();
-		
+
 		EmprestimoController emprestimos = new EmprestimoController();
-		
-		
-		
+
 		String titulo;
-		
+
 		String autor;
-		
+
 		String opcao2 = "";
-		
+
 		int idLivro = 0;
-		
-		int ano, att=0;
-		
+
+		int ano, att = 0;
+
 		int alugado;
-		
+
 		Scanner leia = new Scanner(System.in);
 
 		Cliente c1 = new Cliente("Danilo Moraes", "Rua Lírio Branco", "(11)999999999", clientes.gerarIdCliente());
@@ -62,10 +60,10 @@ public class Menu {
 		int opcao = 0;
 		String nome, endereco, telefone;
 		int idCliente = 0;
-		
+
+		int idEmprestimo;
 		String dataAluguel, dataDevolucao;
-		
-		
+
 		while (true) {
 			System.out.println("===============================================");
 			System.out.println("                                               ");
@@ -169,7 +167,7 @@ public class Menu {
 				ano = leia.nextInt();
 				System.out.println("Digite a Disponibilidade(1- Alugado/ 2- Disponível): ");
 				alugado = leia.nextInt();
-				livros.cadastrar(new Livro ( livros.gerarNumero(), titulo, autor, ano, alugado));
+				livros.cadastrar(new Livro(livros.gerarNumero(), titulo, autor, ano, alugado));
 				keyPress();
 			}
 			case 6 -> {
@@ -191,7 +189,7 @@ public class Menu {
 					ano = leia.nextInt();
 					System.out.println("Digite a Disponibilidade: ");
 					att = leia.nextInt();
-					livros.atualizar(new Livro (idLivro, titulo, autor, ano, att));
+					livros.atualizar(new Livro(idLivro, titulo, autor, ano, att));
 				}
 				keyPress();
 			}
@@ -204,7 +202,7 @@ public class Menu {
 			}
 			case 9 -> {
 				System.out.println("Alugar Livro");
-				
+
 				System.out.println("Insira o Id do Cliente");
 				idCliente = leia.nextInt();
 				System.out.println("Insira o Id do Livro");
@@ -215,27 +213,54 @@ public class Menu {
 				System.out.println("A data de Devolução: ");
 				leia.skip("\\R?");
 				dataDevolucao = leia.nextLine();
-				
-				Emprestimo e1 = new Emprestimo(idCliente, idLivro, dataAluguel, dataDevolucao);
-				
-				if(clientes.buscarClienteCollection(idCliente) != null 
-						&& livros.buscarLivroNaCollectio(idLivro) != null)
-				{
+
+				Emprestimo e1 = new Emprestimo(idCliente, idLivro, dataAluguel, dataDevolucao,
+						emprestimos.gerarIdEmprestimo());
+				// emprestimos.registrarEmprestimo(e1);
+
+				// Emprestimo e1 = new Emprestimo(idCliente, idLivro, dataAluguel,
+				// dataDevolucao);
+
+				if (clientes.buscarClienteCollection(idCliente) != null
+						&& livros.buscarLivroNaCollectio(idLivro) != null) {
 					emprestimos.registrarEmprestimo(e1);
-					
-				}else {
+
+				} else {
 					System.out.println("ID's  não encontrados");
 				}
-				
+
 				keyPress();
 			}
 			case 10 -> {
 				System.out.println("\nListar Livros Alugados");
 				System.out.println("=======================");
-				
+
 				emprestimos.listarLivrosAlugados();
 				keyPress();
 			}
+			case 11 -> {
+				System.out.println("Renovar empréstimo");
+				System.out.println("Digite o id do Empréstimo: ");
+				idEmprestimo = leia.nextInt();
+				System.out.println("A data de Devolução: ");
+				leia.skip("\\R?");
+				dataDevolucao = leia.nextLine();	
+					
+		     	emprestimos.renovarEmprestimo(idEmprestimo, dataDevolucao);
+				
+				keyPress();
+			}
+			case 12 -> {
+				System.out.println("\nRegistrar Devolução");
+				System.out.println("=======================");
+
+				System.out.println("Insira o ID do Empréstimo");
+				idEmprestimo = leia.nextInt();
+
+				emprestimos.deletarEmprestimo(idEmprestimo);
+				keyPress();
+			}
+
 			default -> {
 				System.out.println("\nOpção Inválida!");
 				keyPress();
