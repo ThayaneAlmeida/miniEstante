@@ -21,6 +21,22 @@ public class Menu {
 
 		EmprestimoController emprestimos = new EmprestimoController();
 
+		Livro l1 = new Livro(livros.gerarIdLivro(), "Codar, Rezar, Rodar", "FITZGERALD, Anna", 2020, 2);
+		livros.cadastrar(l1);
+
+		Livro l2 = new Livro(livros.gerarIdLivro(), "Desvendando as Collections", "LINS, Armando", 2018, 2);
+		livros.cadastrar(l2);
+
+		Livro l3 = new Livro(livros.gerarIdLivro(), "Matrizes: O que realmente são?", "ARAÚJO, Fernanda", 2019, 2);
+		livros.cadastrar(l3);
+
+		Livro l4 = new Livro(livros.gerarIdLivro(), "Como usar o Git Bash", "MENDES, Pedro", 2021, 2);
+		livros.cadastrar(l4);
+
+		Livro l5 = new Livro(livros.gerarIdLivro(), "Revelando a Linguagem Por Trás do Seu Aplicativo", "NEVES, Bruna",
+				2020, 2);
+		livros.cadastrar(l5);
+
 		String titulo;
 
 		String autor;
@@ -63,12 +79,11 @@ public class Menu {
 		String dataAluguel, dataDevolucao;
 
 		while (true) {
-			System.out.println("===============================================");
-			System.out.println("                                               ");
-
-			System.out.println("           📚 Bem-vinde a Mini Estante 📚       ");
-			System.out.println("                                               ");
-			System.out.println("===============================================");
+			System.out.println("==================================================");
+			System.out.println("                                                  ");
+			System.out.println("========== 📚 Bem-vinde a Mini Estante 📚 ========");
+			System.out.println("                                                  ");
+			System.out.println("==================================================");
 			System.out.println("\t1- Cadastrar Cliente");
 			System.out.println("\t2- Listar Clientes");
 			System.out.println("\t3- Atualizar Cadastro");
@@ -80,16 +95,11 @@ public class Menu {
 			System.out.println("\t9- Alugar Livro");
 			System.out.println("\t10- Listar Livros Alugados");
 			System.out.println("\t0- Sair");
-			System.out.println("===============================================");
+			System.out.println("==================================================");
 			System.out.println("Digite a opção desejada: ");
 
-			try {
-				opcao = leia.nextInt();
-			} catch (InputMismatchException e) {
-				System.out.println("\nDigite a tecla Enter!");
-				leia.nextLine();
-				opcao = 0;
-			}
+			opcao = leia.nextInt();
+			leia.nextLine();
 
 			if (opcao == 0) {
 				System.out.println("Obrigade por ter visitado a Mini Estante! Nos vemos logo...");
@@ -102,17 +112,35 @@ public class Menu {
 
 				System.out.println("Cadastrar Cliente");
 
-				System.out.println("Digitar o Nome do Cliente: ");
-				leia.skip("\\R?");
-				nome = leia.nextLine();
+				do {
+					System.out.println("Digitar o Nome do Cliente: ");
+					leia.skip("\\R?");
+					nome = leia.nextLine();
 
-				System.out.println("Digitar o Endereço do Cliente: ");
-				leia.skip("\\R?");
-				endereco = leia.nextLine();
+					if (nome.isEmpty())
+						System.out.println("Não pode estar vazio!");
 
-				System.out.println("Digitar o Telefone do Cliente: ");
-				leia.skip("\\R?");
-				telefone = leia.nextLine();
+				} while (nome.isEmpty());
+
+				do {
+					System.out.println("Digitar o Endereço do Cliente: ");
+					leia.skip("\\R?");
+					endereco = leia.nextLine();
+
+					if (endereco.isEmpty())
+						System.out.println("Não pode estar vazio!");
+
+				} while (endereco.isEmpty());
+
+				do {
+					System.out.println("Digitar o Telefone do Cliente: ");
+					leia.skip("\\R?");
+					telefone = leia.nextLine();
+
+					if (telefone.isEmpty())
+						System.out.println("Não pode estar vazio!");
+
+				} while (telefone.isEmpty());
 
 				clientes.cadastrar(new Cliente(nome, endereco, telefone, clientes.gerarIdCliente()));
 
@@ -131,17 +159,35 @@ public class Menu {
 
 				if (clientes.buscarClienteCollection(idCliente) != null) {
 
-					System.out.println("Nome do Cliente: ");
-					leia.skip("\\R?");
-					nome = leia.nextLine();
+					do {
+						System.out.println("Nome do Cliente: ");
+						leia.skip("\\R?");
+						nome = leia.nextLine();
 
-					System.out.println("Endereço: ");
-					leia.skip("\\R?");
-					endereco = leia.nextLine();
+						if (nome.isEmpty())
+							System.out.println("Não pode estar vazio!");
 
-					System.out.println("Número de Telefone:");
-					leia.skip("\\R?");
-					telefone = leia.nextLine();
+					} while (nome.isEmpty());
+
+					do {
+						System.out.println("Endereço: ");
+						leia.skip("\\R?");
+						endereco = leia.nextLine();
+
+						if (endereco.isEmpty())
+							System.out.println("Não pode estar vazio!");
+
+					} while (endereco.isEmpty());
+
+					do {
+						System.out.println("Número de Telefone:");
+						leia.skip("\\R?");
+						telefone = leia.nextLine();
+
+						if (telefone.isEmpty())
+							System.out.println("Não pode estar vazio!");
+
+					} while (telefone.isEmpty());
 
 					clientes.atualizar(new Cliente(nome, endereco, telefone, idCliente));
 
@@ -161,17 +207,35 @@ public class Menu {
 			}
 			case 5 -> {
 				System.out.println("Cadastrar Livro");
-				System.out.println("Digite o Titulo do livro: ");
-				leia.skip("\\R?");
-				titulo = leia.nextLine();
-				System.out.println("Digite o Autor: ");
-				leia.skip("\\R?");
-				autor = leia.nextLine();
+
+				do {
+					System.out.println("Digite o Titulo do livro: ");
+					leia.skip("\\R?");
+					titulo = leia.nextLine();
+
+					if (titulo.isEmpty())
+						System.out.println("Não pode estar vazio!");
+
+				} while (titulo.isEmpty());
+
+				do {
+					System.out.println("Digite o Autor: ");
+					leia.skip("\\R?");
+					autor = leia.nextLine();
+
+					if (autor.isEmpty())
+						System.out.println("Não pode estar vazio!");
+
+				} while (autor.isEmpty());
+
 				System.out.println("Digite o Ano: ");
 				ano = leia.nextInt();
+
 				System.out.println("Digite a Disponibilidade(1- Alugado/ 2- Disponível): ");
 				alugado = leia.nextInt();
-				livros.cadastrar(new Livro(livros.gerarNumero(), titulo, autor, ano, alugado));
+
+				livros.cadastrar(new Livro(livros.gerarIdLivro(), titulo, autor, ano, alugado));
+
 				keyPress();
 			}
 			case 6 -> {
@@ -181,25 +245,43 @@ public class Menu {
 			}
 			case 7 -> {
 				System.out.println("Atualizar Livro");
-				System.out.println("Digite o id do Livro: ");
+
+				System.out.println("Digite o Id do Livro: ");
 				idLivro = leia.nextInt();
 				if (livros.buscarLivroNaCollectio(idLivro) != null) {
-					System.out.println("Digite o Titulo: ");
-					leia.skip("\\R?");
-					titulo = leia.nextLine();
-					System.out.println("Digite o Autor: ");
-					autor = leia.nextLine();
+
+					do {
+						System.out.println("Digite o Titulo: ");
+						leia.skip("\\R?");
+						titulo = leia.nextLine();
+
+						if (titulo.isEmpty())
+							System.out.println("Não pode estar vazio!");
+
+					} while (titulo.isBlank());
+
+					do {
+						System.out.println("Digite o Autor: ");
+						autor = leia.nextLine();
+
+						if (autor.isEmpty())
+							System.out.println("Não pode estar vazio!");
+
+					} while (autor.isEmpty());
+
 					System.out.println("Digite o Ano: ");
 					ano = leia.nextInt();
-					System.out.println("Digite a Disponibilidade: ");
+
+					System.out.println("Digite a Disponibilidade (1- Alugado/ 2- Disponível): ");
 					att = leia.nextInt();
+
 					livros.atualizar(new Livro(idLivro, titulo, autor, ano, att));
 				}
 				keyPress();
 			}
 			case 8 -> {
 				System.out.println("Excluir Livro");
-				System.out.println("Digite o id do Livro: ");
+				System.out.println("Digite o Id do Livro: ");
 				idLivro = leia.nextInt();
 				livros.deletarLivro(idLivro);
 				keyPress();
@@ -211,12 +293,25 @@ public class Menu {
 				idCliente = leia.nextInt();
 				System.out.println("Insira o Id do Livro");
 				idLivro = leia.nextInt();
-				System.out.println("A data de Aluguel: ");
-				leia.skip("\\R?");
-				dataAluguel = leia.nextLine();
-				System.out.println("A data de Devolução: ");
-				leia.skip("\\R?");
-				dataDevolucao = leia.nextLine();
+				do {
+					System.out.println("A data de Aluguel: ");
+					leia.skip("\\R?");
+					dataAluguel = leia.nextLine();
+
+					if (dataAluguel.isEmpty())
+						System.out.println("Não pode estar vazio!");
+
+				} while (dataAluguel.isEmpty());
+
+				do {
+					System.out.println("A data de Devolução: ");
+					leia.skip("\\R?");
+					dataDevolucao = leia.nextLine();
+
+					if (dataDevolucao.isEmpty())
+						System.out.println("Não pode estar vazio!");
+
+				} while (dataDevolucao.isEmpty());
 
 				Emprestimo e1 = new Emprestimo(idCliente, idLivro, dataAluguel, dataDevolucao);
 
@@ -256,7 +351,7 @@ public class Menu {
 			System.in.read();
 
 		} catch (IOException e) {
-
+			System.out.println("\nDigite a tecla Enter!");
 		}
 	}
 

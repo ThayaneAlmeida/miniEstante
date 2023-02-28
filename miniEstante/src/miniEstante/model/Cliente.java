@@ -50,16 +50,16 @@ public class Cliente {
 
 	public void visualizar() {
 
-		System.out.println("**************************************************");
+		System.out.println("==================================================");
 		System.out.println("                                                  ");
-		System.out.println("Dados do Cliente");
-		System.out.println("**************************************************");
+		System.out.println("================Dados do Cliente==================");
+		System.out.println("                                                  ");
+		System.out.println("==================================================");
 		System.out.println("Id: " + this.idCliente);
 		System.out.println("Nome do Cliente: " + this.nome);
 		System.out.println("Endereço: " + this.endereco);
 		System.out.println("Telefone: " + this.telefone);
-		System.out.println("                                                  ");
-		System.out.println("**************************************************");
+		System.out.println("==================================================");
 
 	}
 
