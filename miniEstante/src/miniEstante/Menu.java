@@ -21,6 +21,7 @@ public class Menu {
 
 		EmprestimoController emprestimos = new EmprestimoController();
 
+
 		Livro l1 = new Livro(livros.gerarIdLivro(), "Codar, Rezar, Rodar", "FITZGERALD, Anna", 2020, 2);
 		livros.cadastrar(l1);
 
@@ -40,8 +41,6 @@ public class Menu {
 		String titulo;
 
 		String autor;
-
-		String opcao2 = "";
 
 		int idLivro = 0;
 
@@ -74,6 +73,10 @@ public class Menu {
 
 		int opcao = 0;
 		String nome, endereco, telefone;
+
+
+		int idEmprestimo;
+
 
 		int idCliente;
 		String dataAluguel, dataDevolucao;
@@ -293,6 +296,7 @@ public class Menu {
 				idCliente = leia.nextInt();
 				System.out.println("Insira o Id do Livro");
 				idLivro = leia.nextInt();
+
 				do {
 					System.out.println("A data de Aluguel: ");
 					leia.skip("\\R?");
@@ -315,6 +319,7 @@ public class Menu {
 
 				Emprestimo e1 = new Emprestimo(idCliente, idLivro, dataAluguel, dataDevolucao);
 
+
 				if (clientes.buscarClienteCollection(idCliente) != null
 						&& livros.buscarLivroNaCollectio(idLivro) != null) {
 					emprestimos.registrarEmprestimo(e1);
@@ -332,6 +337,29 @@ public class Menu {
 				emprestimos.listarLivrosAlugados();
 				keyPress();
 			}
+			case 11 -> {
+				System.out.println("Renovar empréstimo");
+				System.out.println("Digite o id do Empréstimo: ");
+				idEmprestimo = leia.nextInt();
+				System.out.println("A data de Devolução: ");
+				leia.skip("\\R?");
+				dataDevolucao = leia.nextLine();	
+					
+		     	emprestimos.renovarEmprestimo(idEmprestimo, dataDevolucao);
+				
+				keyPress();
+			}
+			case 12 -> {
+				System.out.println("\nRegistrar Devolução");
+				System.out.println("=======================");
+
+				System.out.println("Insira o ID do Empréstimo");
+				idEmprestimo = leia.nextInt();
+
+				emprestimos.deletarEmprestimo(idEmprestimo);
+				keyPress();
+			}
+
 			default -> {
 				System.out.println("\nOpção Inválida!");
 				keyPress();

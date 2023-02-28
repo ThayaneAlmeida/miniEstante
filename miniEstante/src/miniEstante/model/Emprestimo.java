@@ -6,6 +6,7 @@ public class Emprestimo {
 	int idLivro;
 	String dataAluguel;
 	String dataDevolucao;
+	int idEmprestimo;
 
 	public Emprestimo(int idCliente, int idLivro, String dataAluguel, String dataDevolucao) {
 		this.idCliente = idCliente;
@@ -13,6 +14,15 @@ public class Emprestimo {
 		this.dataAluguel = dataAluguel;
 		this.dataDevolucao = dataDevolucao;
 	}
+
+	public Emprestimo(int idCliente, int idLivro, String dataAluguel, String dataDevolucao, int idEmprestimo) {
+		this.idCliente = idCliente;
+		this.idLivro = idLivro;
+		this.dataAluguel = dataAluguel;
+		this.dataDevolucao = dataDevolucao;
+		this.idEmprestimo = idEmprestimo;
+	}
+
 
 	public int getIdCliente() {
 		return idCliente;
@@ -24,6 +34,15 @@ public class Emprestimo {
 
 	public int getIdLivro() {
 		return idLivro;
+	}
+
+	public int getIdEmprestimo() {
+		return idEmprestimo;
+	}
+
+
+	public void setIdEmprestimo(int idEmprestimo) {
+		this.idEmprestimo = idEmprestimo;
 	}
 
 	public void setIdLivro(int idLivro) {
@@ -38,7 +57,7 @@ public class Emprestimo {
 		this.dataAluguel = dataAluguel;
 	}
 
-	public String getDataDevolucao() {
+	public String getDataDevolucao(String dataDevolucao) {
 		return dataDevolucao;
 	}
 
@@ -56,8 +75,7 @@ public class Emprestimo {
 		System.out.println("ID do Cliente: " + this.idCliente);
 		System.out.println("Data do aluguel: " + this.dataAluguel);
 		System.out.println("Data de devolução: " + this.dataDevolucao);
-		System.out.println("==================================================");
+		System.out.println("ID do Empréstimo: " + this.idEmprestimo);
 
 	}
-
 }
